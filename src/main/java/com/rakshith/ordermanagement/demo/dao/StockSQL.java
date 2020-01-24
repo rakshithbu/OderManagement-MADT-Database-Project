@@ -56,4 +56,16 @@ public class StockSQL {
             return "error";
         }
     }
+
+    public void deleteStocks(String stockId){
+        String query = "DELETE FROM stocks where stock_id=?";
+        try {
+            PreparedStatement preparedStatement =
+                    DatabaseConnect.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, Integer.parseInt(stockId));
+             preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

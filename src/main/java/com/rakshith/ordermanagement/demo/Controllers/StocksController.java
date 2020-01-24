@@ -38,4 +38,10 @@ public class StocksController {
         }
         return result;
     }
+
+    @RequestMapping("/deleteStock")
+    public String deleteStock(@RequestParam("stockName") String stockId){
+        stockSQL.deleteStocks(stockId);
+        return "success";
+    }
 }
